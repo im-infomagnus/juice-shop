@@ -1,0 +1,148 @@
+---
+queries: []
+extensionPacks: []
+packs:
+  codeql/javascript-queries#0:
+    name: codeql/javascript-queries
+    version: 1.0.0
+    localPath: file:///H:/codeql/qlpacks/codeql/javascript-queries/1.0.0/
+    localPackDefinitionFile: file:///H:/codeql/qlpacks/codeql/javascript-queries/1.0.0/qlpack.yml
+    runDataExtensions:
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/NoSQL.model.yml
+      index: 0
+      firstRowId: 0
+      rowCount: 4
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/SQL.model.yml
+      index: 0
+      firstRowId: 4
+      rowCount: 5
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/SQL.model.yml
+      index: 1
+      firstRowId: 9
+      rowCount: 4
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/data/internal/empty.model.yml
+      index: 0
+      firstRowId: 13
+      rowCount: 0
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/mongodb/model.yml
+      index: 0
+      firstRowId: 88
+      rowCount: 26
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/mongodb/model.yml
+      index: 1
+      firstRowId: 114
+      rowCount: 611
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/mongodb/model.yml
+      index: 2
+      firstRowId: 725
+      rowCount: 32
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/mongodb/model.yml
+      index: 3
+      firstRowId: 757
+      rowCount: 102
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/mssql/model.yml
+      index: 0
+      firstRowId: 859
+      rowCount: 34
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/mysql/model.yml
+      index: 0
+      firstRowId: 893
+      rowCount: 57
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/mysql/model.yml
+      index: 1
+      firstRowId: 950
+      rowCount: 3
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/pg/model.yml
+      index: 0
+      firstRowId: 953
+      rowCount: 65
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/pg/model.yml
+      index: 1
+      firstRowId: 1018
+      rowCount: 5
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/pg/model.yml
+      index: 2
+      firstRowId: 1023
+      rowCount: 23
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/sequelize/model.yml
+      index: 0
+      firstRowId: 1046
+      rowCount: 7
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/sequelize/model.yml
+      index: 1
+      firstRowId: 1053
+      rowCount: 248
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/sequelize/model.yml
+      index: 2
+      firstRowId: 1301
+      rowCount: 5
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/sequelize/model.yml
+      index: 3
+      firstRowId: 1306
+      rowCount: 2
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/spanner/model.yml
+      index: 0
+      firstRowId: 1308
+      rowCount: 174
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/spanner/model.yml
+      index: 1
+      firstRowId: 1482
+      rowCount: 5
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/sqlite3/model.yml
+      index: 0
+      firstRowId: 1487
+      rowCount: 15
+     -
+      pack: codeql/javascript-all#1
+      relativePath: semmle/javascript/frameworks/sqlite3/model.yml
+      index: 1
+      firstRowId: 1502
+      rowCount: 3
+  codeql/javascript-all#1:
+    name: codeql/javascript-all
+    version: 1.0.0
+    localPath: file:///H:/codeql/qlpacks/codeql/javascript-queries/1.0.0/.codeql/libraries/codeql/javascript-all/1.0.0/
+    localPackDefinitionFile: file:///H:/codeql/qlpacks/codeql/javascript-queries/1.0.0/.codeql/libraries/codeql/javascript-all/1.0.0/qlpack.yml
+    runDataExtensions: []
