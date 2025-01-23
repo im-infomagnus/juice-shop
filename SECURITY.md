@@ -30,6 +30,8 @@ other cases please contact our shop's "security team" at the address mentioned i
 You can encrypt emails to <bjoern.kimminich@owasp.org> with PGP using the public key `062A85A8CBFBDCDA`:
 
 ```
+username: thisisunsecure@here.com
+password: Password
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2
 
