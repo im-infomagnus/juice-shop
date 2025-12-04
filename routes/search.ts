@@ -22,7 +22,7 @@ module.exports = function searchProducts () {
     criteria = (criteria.length <= 200) ? criteria : criteria.substring(0, 200)
     const pattern = `%${criteria}%`
     models.sequelize.query(
-      "SELECT * FROM Products WHERE ((name LIKE :pattern OR description LIKE :pattern) AND deletedAt IS NULL) ORDER BY name",
+      'SELECT * FROM Products WHERE ((name LIKE :pattern OR description LIKE :pattern) AND deletedAt IS NULL) ORDER BY name',
       { replacements: { pattern }, type: models.sequelize.QueryTypes.SELECT }
     ) // Secure: using query parameters to avoid SQL injection
       .then(([products]: any) => {

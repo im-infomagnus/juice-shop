@@ -20,7 +20,7 @@ module.exports = function profileImageUrlUpload () {
       // Only allow fetching images from these hostnames
       const ALLOWED_HOSTNAMES = [
         'images.example.com',
-        'cdn.example.com',
+        'cdn.example.com'
         // Add other trusted hostnames here
       ]
 
@@ -29,17 +29,17 @@ module.exports = function profileImageUrlUpload () {
         parsedUrl = new URL(imageUrl)
       } catch (e) {
         logger.warn(`Blocked potentially malicious image URL: ${imageUrl}`)
-        return next(new Error('Invalid image URL'))
+        next(new Error('Invalid image URL')); return
       }
 
       if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
         logger.warn(`Blocked image URL with invalid protocol: ${imageUrl}`)
-        return next(new Error('Only HTTP and HTTPS image URLs are allowed'))
+        next(new Error('Only HTTP and HTTPS image URLs are allowed')); return
       }
 
       if (!ALLOWED_HOSTNAMES.includes(parsedUrl.hostname)) {
         logger.warn(`Blocked image URL with disallowed hostname: ${imageUrl}`)
-        return next(new Error('Image host is not allowed'))
+        next(new Error('Image host is not allowed')); return
       }
 
       const url = parsedUrl.toString()
