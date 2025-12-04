@@ -6,16 +6,43 @@
 import fs = require('fs')
 import { type Request, type Response, type NextFunction } from 'express'
 import logger from '../lib/logger'
+import { URL } from 'url'
 
 import { UserModel } from '../models/user'
 import * as utils from '../lib/utils'
 const security = require('../lib/insecurity')
 const request = require('request')
-
 module.exports = function profileImageUrlUpload () {
   return (req: Request, res: Response, next: NextFunction) => {
     if (req.body.imageUrl !== undefined) {
-      const url = req.body.imageUrl
+      const imageUrl = req.body.imageUrl
+
+      // Only allow fetching images from these hostnames
+      const ALLOWED_HOSTNAMES = [
+        'images.example.com',
+        'cdn.example.com',
+        // Add other trusted hostnames here
+      ]
+
+      let parsedUrl
+      try {
+        parsedUrl = new URL(imageUrl)
+      } catch (e) {
+        logger.warn(`Blocked potentially malicious image URL: ${imageUrl}`)
+        return next(new Error('Invalid image URL'))
+      }
+
+      if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+        logger.warn(`Blocked image URL with invalid protocol: ${imageUrl}`)
+        return next(new Error('Only HTTP and HTTPS image URLs are allowed'))
+      }
+
+      if (!ALLOWED_HOSTNAMES.includes(parsedUrl.hostname)) {
+        logger.warn(`Blocked image URL with disallowed hostname: ${imageUrl}`)
+        return next(new Error('Image host is not allowed'))
+      }
+
+      const url = parsedUrl.toString()
       if (url.match(/(.)*solve\/challenges\/server-side(.)*/) !== null) req.app.locals.abused_ssrf_bug = true
       const loggedInUser = security.authenticatedUsers.get(req.cookies.token)
       if (loggedInUser) {
