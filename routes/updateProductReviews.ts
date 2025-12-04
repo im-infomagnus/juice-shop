@@ -14,8 +14,13 @@ const security = require('../lib/insecurity')
 module.exports = function productReviews () {
   return (req: Request, res: Response, next: NextFunction) => {
     const user = security.authenticatedUsers.from(req) // vuln-code-snippet vuln-line forgedReviewChallenge
+    // Validate that id is a string to prevent NoSQL injection
+    if (typeof req.body.id !== 'string') {
+      res.status(400).json({ error: 'Invalid id type' })
+      return
+    }
     db.reviewsCollection.update( // vuln-code-snippet neutral-line forgedReviewChallenge
-      { _id: { $eq: req.body.id } }, // FIXED: prevent NoSQL injection by forcing equality comparison
+      { _id: { $eq: req.body.id } }, // Safe: id is guaranteed to be a string
       { $set: { message: req.body.message } },
       { multi: true } // vuln-code-snippet vuln-line noSqlReviewsChallenge
     ).then(
